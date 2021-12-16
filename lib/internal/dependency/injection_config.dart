@@ -4,14 +4,14 @@ import 'package:la_music/internal/config/app_config.dart';
 import 'package:la_music/internal/dependency/injection_config.config.dart';
 import 'package:logging/logging.dart';
 
-GetIt? dependencyContainer;
+late final GetIt getIt;
 
 @injectableInit
 void initDependencies(AppConfig config) {
-  dependencyContainer = GetIt.asNewInstance();
+  getIt = GetIt.asNewInstance();
 
   $initGetIt(
-    dependencyContainer!,
+    getIt,
     environment: config.name,
   );
 }
