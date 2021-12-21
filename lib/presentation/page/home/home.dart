@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:la_music/domain/bloc/app/app_bloc.dart';
 import 'package:la_music/domain/mixin/language.dart';
 import 'package:la_music/generated/l10n.dart';
+import 'package:la_music/internal/config/auto_router.dart';
+import 'package:la_music/internal/config/auto_router.gr.dart';
+import 'package:la_music/internal/dependency/injection_config.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -18,7 +23,7 @@ class _HomeState extends State<Home> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(S.of(context).appTitle),
+            Text(S.of(context).appTitle + getIt<AppBloc>().state.counter.toString()),
             InkWell(
               onTap: () => setState(() {
                 if (Intl.getCurrentLocale() == 'ru_RU') {
@@ -29,10 +34,18 @@ class _HomeState extends State<Home> {
                   );
                 }
               }),
-              child: Text('Change on Ru'),
-            )
+              child: const Text('Change on language'),
+            ),
           ],
         ),
+      ),
+      floatingActionButton: BlocBuilder<AppBloc, AppState>(
+        builder: (context, state) {
+          return FloatingActionButton(
+            onPressed: () => getIt<AppBloc>().add(const AppChangeTheamEvent()),
+            child: Icon(state.themeData!.brightness == Brightness.dark ? Icons.theater_comedy_outlined : Icons.theater_comedy),
+          );
+        },
       ),
     );
   }

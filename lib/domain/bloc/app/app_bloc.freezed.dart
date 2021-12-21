@@ -20,6 +20,10 @@ class _$AppEventTearOff {
   AppInitEvent init() {
     return const AppInitEvent();
   }
+
+  AppChangeTheamEvent changeTheam() {
+    return const AppChangeTheamEvent();
+  }
 }
 
 /// @nodoc
@@ -30,32 +34,38 @@ mixin _$AppEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
+    required TResult Function() changeTheam,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function()? changeTheam,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function()? changeTheam,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppInitEvent value) init,
+    required TResult Function(AppChangeTheamEvent value) changeTheam,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(AppInitEvent value)? init,
+    TResult Function(AppChangeTheamEvent value)? changeTheam,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppInitEvent value)? init,
+    TResult Function(AppChangeTheamEvent value)? changeTheam,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -117,6 +127,7 @@ class _$AppInitEvent implements AppInitEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
+    required TResult Function() changeTheam,
   }) {
     return init();
   }
@@ -125,6 +136,7 @@ class _$AppInitEvent implements AppInitEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function()? changeTheam,
   }) {
     return init?.call();
   }
@@ -133,6 +145,7 @@ class _$AppInitEvent implements AppInitEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function()? changeTheam,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -145,6 +158,7 @@ class _$AppInitEvent implements AppInitEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppInitEvent value) init,
+    required TResult Function(AppChangeTheamEvent value) changeTheam,
   }) {
     return init(this);
   }
@@ -153,6 +167,7 @@ class _$AppInitEvent implements AppInitEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(AppInitEvent value)? init,
+    TResult Function(AppChangeTheamEvent value)? changeTheam,
   }) {
     return init?.call(this);
   }
@@ -161,6 +176,7 @@ class _$AppInitEvent implements AppInitEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppInitEvent value)? init,
+    TResult Function(AppChangeTheamEvent value)? changeTheam,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -175,11 +191,119 @@ abstract class AppInitEvent implements AppEvent {
 }
 
 /// @nodoc
+abstract class $AppChangeTheamEventCopyWith<$Res> {
+  factory $AppChangeTheamEventCopyWith(
+          AppChangeTheamEvent value, $Res Function(AppChangeTheamEvent) then) =
+      _$AppChangeTheamEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$AppChangeTheamEventCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res>
+    implements $AppChangeTheamEventCopyWith<$Res> {
+  _$AppChangeTheamEventCopyWithImpl(
+      AppChangeTheamEvent _value, $Res Function(AppChangeTheamEvent) _then)
+      : super(_value, (v) => _then(v as AppChangeTheamEvent));
+
+  @override
+  AppChangeTheamEvent get _value => super._value as AppChangeTheamEvent;
+}
+
+/// @nodoc
+
+class _$AppChangeTheamEvent implements AppChangeTheamEvent {
+  const _$AppChangeTheamEvent();
+
+  @override
+  String toString() {
+    return 'AppEvent.changeTheam()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is AppChangeTheamEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() changeTheam,
+  }) {
+    return changeTheam();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? changeTheam,
+  }) {
+    return changeTheam?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? changeTheam,
+    required TResult orElse(),
+  }) {
+    if (changeTheam != null) {
+      return changeTheam();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppInitEvent value) init,
+    required TResult Function(AppChangeTheamEvent value) changeTheam,
+  }) {
+    return changeTheam(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AppInitEvent value)? init,
+    TResult Function(AppChangeTheamEvent value)? changeTheam,
+  }) {
+    return changeTheam?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppInitEvent value)? init,
+    TResult Function(AppChangeTheamEvent value)? changeTheam,
+    required TResult orElse(),
+  }) {
+    if (changeTheam != null) {
+      return changeTheam(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AppChangeTheamEvent implements AppEvent {
+  const factory AppChangeTheamEvent() = _$AppChangeTheamEvent;
+}
+
+/// @nodoc
 class _$AppStateTearOff {
   const _$AppStateTearOff();
 
-  _AppInitialState initial() {
-    return const _AppInitialState();
+  _AppState call({int? counter, ThemeData? themeData}) {
+    return _AppState(
+      counter: counter,
+      themeData: themeData,
+    );
   }
 }
 
@@ -188,37 +312,11 @@ const $AppState = _$AppStateTearOff();
 
 /// @nodoc
 mixin _$AppState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_AppInitialState value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AppInitialState value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AppInitialState value)? initial,
-    required TResult orElse(),
-  }) =>
+  int? get counter => throw _privateConstructorUsedError;
+  ThemeData? get themeData => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AppStateCopyWith<AppState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -226,6 +324,7 @@ mixin _$AppState {
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res>;
+  $Res call({int? counter, ThemeData? themeData});
 }
 
 /// @nodoc
@@ -235,102 +334,106 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
   final AppState _value;
   // ignore: unused_field
   final $Res Function(AppState) _then;
-}
-
-/// @nodoc
-abstract class _$AppInitialStateCopyWith<$Res> {
-  factory _$AppInitialStateCopyWith(
-          _AppInitialState value, $Res Function(_AppInitialState) then) =
-      __$AppInitialStateCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$AppInitialStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
-    implements _$AppInitialStateCopyWith<$Res> {
-  __$AppInitialStateCopyWithImpl(
-      _AppInitialState _value, $Res Function(_AppInitialState) _then)
-      : super(_value, (v) => _then(v as _AppInitialState));
 
   @override
-  _AppInitialState get _value => super._value as _AppInitialState;
+  $Res call({
+    Object? counter = freezed,
+    Object? themeData = freezed,
+  }) {
+    return _then(_value.copyWith(
+      counter: counter == freezed
+          ? _value.counter
+          : counter // ignore: cast_nullable_to_non_nullable
+              as int?,
+      themeData: themeData == freezed
+          ? _value.themeData
+          : themeData // ignore: cast_nullable_to_non_nullable
+              as ThemeData?,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
+  factory _$AppStateCopyWith(_AppState value, $Res Function(_AppState) then) =
+      __$AppStateCopyWithImpl<$Res>;
+  @override
+  $Res call({int? counter, ThemeData? themeData});
+}
+
+/// @nodoc
+class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
+    implements _$AppStateCopyWith<$Res> {
+  __$AppStateCopyWithImpl(_AppState _value, $Res Function(_AppState) _then)
+      : super(_value, (v) => _then(v as _AppState));
+
+  @override
+  _AppState get _value => super._value as _AppState;
+
+  @override
+  $Res call({
+    Object? counter = freezed,
+    Object? themeData = freezed,
+  }) {
+    return _then(_AppState(
+      counter: counter == freezed
+          ? _value.counter
+          : counter // ignore: cast_nullable_to_non_nullable
+              as int?,
+      themeData: themeData == freezed
+          ? _value.themeData
+          : themeData // ignore: cast_nullable_to_non_nullable
+              as ThemeData?,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_AppInitialState implements _AppInitialState {
-  const _$_AppInitialState();
+class _$_AppState extends _AppState {
+  const _$_AppState({this.counter, this.themeData}) : super._();
+
+  @override
+  final int? counter;
+  @override
+  final ThemeData? themeData;
 
   @override
   String toString() {
-    return 'AppState.initial()';
+    return 'AppState(counter: $counter, themeData: $themeData)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _AppInitialState);
+        (other.runtimeType == runtimeType &&
+            other is _AppState &&
+            const DeepCollectionEquality().equals(other.counter, counter) &&
+            const DeepCollectionEquality().equals(other.themeData, themeData));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(counter),
+      const DeepCollectionEquality().hash(themeData));
 
+  @JsonKey(ignore: true)
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_AppInitialState value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AppInitialState value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AppInitialState value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  _$AppStateCopyWith<_AppState> get copyWith =>
+      __$AppStateCopyWithImpl<_AppState>(this, _$identity);
 }
 
-abstract class _AppInitialState implements AppState {
-  const factory _AppInitialState() = _$_AppInitialState;
+abstract class _AppState extends AppState {
+  const factory _AppState({int? counter, ThemeData? themeData}) = _$_AppState;
+  const _AppState._() : super._();
+
+  @override
+  int? get counter;
+  @override
+  ThemeData? get themeData;
+  @override
+  @JsonKey(ignore: true)
+  _$AppStateCopyWith<_AppState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

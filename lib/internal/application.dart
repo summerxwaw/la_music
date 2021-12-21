@@ -13,29 +13,29 @@ class Application extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<AppBloc>(),
-      child: MaterialApp.router(
-        builder: (context, child) {
-          return MediaQuery(
-            data: MediaQuery.of(context).copyWith(
-              textScaleFactor: 1.0,
-            ),
-            child: child!,
+      child: BlocBuilder<AppBloc, AppState>(
+        builder: (context, state) {
+          return MaterialApp.router(
+            builder: (context, child) {
+              return MediaQuery(
+                data: MediaQuery.of(context).copyWith(
+                  textScaleFactor: 1.0,
+                ),
+                child: child!,
+              );
+            },
+            theme: state.themeData,
+            debugShowCheckedModeBanner: false,
+            supportedLocales: S.delegate.supportedLocales,
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+            ],
+            routerDelegate: router.delegate(),
+            routeInformationParser: router.defaultRouteParser(),
           );
         },
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        debugShowCheckedModeBanner: false,
-        supportedLocales: S.delegate.supportedLocales,
-        localizationsDelegates: const [
-          S.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          // GlobalCupertinoLocalizations.delegate,
-        ],
-        routerDelegate: router.delegate(),
-        routeInformationParser: router.defaultRouteParser(),
       ),
     );
   }
