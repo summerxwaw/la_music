@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:la_music/domain/bloc/gallery/gallery_bloc.dart';
-import 'package:la_music/internal/dependency/injection_config.dart';
 import 'package:la_music/presentation/widgets/fade_animation_container.dart';
 
 class Gallery extends StatelessWidget {

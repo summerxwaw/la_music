@@ -15,7 +15,6 @@ class GalleryBloc extends Bloc<GalleryEvent, GalleryState> {
     on<FetchPhotoEvent>((event, emit) async {
       emit(const GalleryState.loading());
 
-      await Future.delayed(Duration(seconds: 1));
       final List<PhotoDto> photos = await getIt<PhotoService>().fetchPhoto();
 
       emit(GalleryState.loaded(photos: photos));
