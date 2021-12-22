@@ -13,7 +13,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    getIt<AppBloc>().add(AppInitEvent());
+    getIt<AppBloc>().add(const AppInitEvent());
   }
 
   @override

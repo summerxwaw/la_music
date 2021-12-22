@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:la_music/domain/bloc/app/app_bloc.dart';
-import 'package:la_music/domain/mixin/language.dart';
 import 'package:la_music/generated/l10n.dart';
 import 'package:la_music/internal/config/auto_router.dart';
 import 'package:la_music/internal/config/auto_router.gr.dart';
@@ -35,6 +34,10 @@ class _HomeState extends State<Home> {
                 }
               }),
               child: const Text('Change on language'),
+            ),
+            InkWell(
+              onTap: () => router.push(const GalleryRoute()),
+              child: const Text('Go to gallery'),
             ),
           ],
         ),

@@ -8,12 +8,31 @@ part of 'rest_client.dart';
 
 class _RestClient implements RestClient {
   _RestClient(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://5d42a6e2bc64f90014a56ca0.mockapi.io/api/v1/';
+    baseUrl ??=
+        'https://api.unsplash.com/photos/?client_id=HNcTQS4tPjlAR3uNg5csBssOzJInF7St-7yePTjoYRA';
   }
 
   final Dio _dio;
 
   String? baseUrl;
+
+  @override
+  Future<List<PhotoDto>> fetchPhoto() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<PhotoDto>>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) => PhotoDto.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
