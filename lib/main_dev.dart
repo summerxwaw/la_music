@@ -6,7 +6,7 @@ import 'package:la_music/internal/config/app_config.dart';
 import 'package:la_music/internal/config/init_system.dart';
 import 'package:la_music/internal/dependency/injection_config.dart';
 
-void main() async {
+Future<void> main() async {
   initDependencies(DevConfig());
   initLogger(DevConfig());
   await initSystem();

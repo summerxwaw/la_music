@@ -18,8 +18,8 @@ void initDependencies(AppConfig config) {
 
 void initLogger(AppConfig config) {
   Logger.root.level = config.enableLogs ? Level.ALL : Level.WARNING;
-  Logger.root.onRecord.listen((LogRecord rec) {
-    print(':::> ${rec.loggerName} ${rec.level.name}: ${rec.message} '
-        '${rec.stackTrace?.toString() ?? ''}');
+  Logger.root.onRecord.listen((rec) {
+    // print(':::> ${rec.loggerName} ${rec.level.name}: ${rec.message} '
+    //     '${rec.stackTrace?.toString() ?? ''}');
   });
 }

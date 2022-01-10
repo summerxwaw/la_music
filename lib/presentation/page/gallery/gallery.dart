@@ -30,7 +30,6 @@ class _GalleryWidget extends StatelessWidget {
       ),
       loading: () => const Center(child: FadeAnimationContainer(child: Text('Loading'))),
       loaded: (photos) {
-        print(photos.length);
         return ListView.builder(
             itemCount: photos.length,
             itemBuilder: (ctx, i) {

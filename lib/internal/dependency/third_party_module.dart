@@ -38,7 +38,7 @@ abstract class ThirdPartyModule {
 
     final interceptors = [
       ErrorInterceptor.instance,
-      HeaderInterceptor.instance..set(dio, isAuthorized),
+      HeaderInterceptor.instance..set(dio: dio, isAuthorized: isAuthorized),
     ];
 
     return dio

@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
@@ -18,13 +17,13 @@ Future<void> initSystem() async {
   );
 
   HeaderInterceptor.instance.init(
-    onError: (DioError error) async {},
-    onRequest: (RequestOptions options) async {},
-    onResponse: (dynamic t) async {},
+    onError: (error) async {},
+    onRequest: (options) async {},
+    onResponse: (t) async {},
   );
 
-  ErrorInterceptor.instance.init(
-    onErrorCallback: (DioError error) {},
+  await ErrorInterceptor.instance.init(
+    onErrorCallback: (error) {},
   );
 
   await SystemChrome.setPreferredOrientations([

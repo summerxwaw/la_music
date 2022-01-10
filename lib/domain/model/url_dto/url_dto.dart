@@ -6,8 +6,6 @@ part 'url_dto.g.dart';
 
 @freezed
 class UrlDto with _$UrlDto {
-  const UrlDto._();
-
   @JsonSerializable(
     fieldRename: FieldRename.snake,
     checked: true,
@@ -20,6 +18,8 @@ class UrlDto with _$UrlDto {
     @JsonKey(name: 'small') String? small,
     @JsonKey(name: 'thumb') String? thumb,
   }) = _UrlDto;
+
+  const UrlDto._();
 
   factory UrlDto.fromJson(Map<String, dynamic> json) => _$UrlDtoFromJson(json);
 }

@@ -14,13 +14,14 @@ class HeaderInterceptor extends Interceptor {
   // late TokenStorage _tokenStorage;
   late bool _isFirstTokenError = true;
 
+  // ignore: no_runtimetype_tostring
   Logger get _logger => Logger('[$runtimeType]');
 
   late Future Function(RequestOptions) onRequestFunction;
   late Future Function(Response) onResponseFunction;
   late Future Function(DioError) onErrorFunction;
 
-  void set(Dio dio, bool isAuthorized) {
+  void set({required Dio dio, required bool isAuthorized}) {
     _dio = dio;
   }
 
@@ -58,7 +59,7 @@ class HeaderInterceptor extends Interceptor {
   void setFirebaseTokenType() {}
 
   @override
-  Future onRequest(RequestOptions options, handler) async {
+  Future onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     _logger.info('onRequest options: $options');
 
     options.contentType = 'application/json';
@@ -75,26 +76,26 @@ class HeaderInterceptor extends Interceptor {
   }
 
   @override
-  Future onError(DioError dioError, handler) async {
-    _logger.info('onError error: $dioError');
-    if (_isTokenExpiredError(dioError) && _isFirstTokenError) {
+  Future onError(DioError err, ErrorInterceptorHandler handler) async {
+    _logger.info('onError error: $err');
+    if (_isTokenExpiredError(err) && _isFirstTokenError) {
       _isFirstTokenError = false;
 
       // final String? tokenData = await _tokenStorage.getToken();
       // if (tokenData != null) _isFirstTokenError = true;
 
       _logger.info('token RENEWED, retry request');
-      return super.onError(dioError, handler);
-    } else if (_isTokenExpiredError(dioError)) {
+      return super.onError(err, handler);
+    } else if (_isTokenExpiredError(err)) {
       _isFirstTokenError = true;
       _logger.info('token RENEWED, logout');
     }
 
-    return onErrorFunction(dioError);
+    return onErrorFunction(err);
   }
 
   @override
-  Future onResponse(Response response, handler) async {
+  Future onResponse(Response response, ResponseInterceptorHandler handler) async {
     return super.onResponse(response, handler);
   }
 

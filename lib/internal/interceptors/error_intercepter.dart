@@ -10,17 +10,17 @@ class ErrorInterceptor extends Interceptor {
 
   Logger get logger => Logger('${_instance.runtimeType}');
 
-  void init({required void Function(DioError) onErrorCallback}) {
+  Future<void> init({required void Function(DioError) onErrorCallback}) async {
     this.onErrorCallback = onErrorCallback;
   }
 
   late void Function(DioError) onErrorCallback;
 
   @override
-  Future<dynamic> onError(DioError error, ErrorInterceptorHandler handler) async {
-    logger.warning('---------||${error.error}\n\n ${error.response?.data ?? ''}\n\n');
+  Future<dynamic> onError(DioError err, ErrorInterceptorHandler handler) async {
+    logger.warning('---------||${err.error}\n\n ${err.response?.data ?? ''}\n\n');
 
-    onErrorCallback(error);
-    return super.onError(error, handler);
+    onErrorCallback(err);
+    return super.onError(err, handler);
   }
 }

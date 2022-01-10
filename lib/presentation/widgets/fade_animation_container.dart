@@ -3,12 +3,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class FadeAnimationContainer extends StatefulWidget {
-  final Widget child;
-
   const FadeAnimationContainer({
     required this.child,
     Key? key,
   }) : super(key: key);
+
+  final Widget child;
 
   @override
   _FadeAnimationContainerState createState() => _FadeAnimationContainerState();
@@ -20,18 +20,17 @@ class _FadeAnimationContainerState extends State<FadeAnimationContainer> with Si
 
   @override
   void initState() {
-    _animationController = AnimationController(vsync: this);
+    _animationController = AnimationController(vsync: this)..addListener(loading);
     _animation = Tween<double>(begin: 0.0, end: pi * 2).animate(_animationController);
     _animationController.repeat(period: const Duration(seconds: 1));
-    _animationController.addListener(loading);
 
     super.initState();
   }
 
   @override
   void dispose() {
-    _animationController.removeListener(loading);
     _animationController.dispose();
+    // _animationController.removeListener(loading);
     super.dispose();
   }
 

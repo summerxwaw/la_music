@@ -7,8 +7,6 @@ part 'photo_dto.g.dart';
 
 @freezed
 class PhotoDto with _$PhotoDto {
-  const PhotoDto._();
-
   @JsonSerializable(
     fieldRename: FieldRename.snake,
     checked: true,
@@ -23,6 +21,8 @@ class PhotoDto with _$PhotoDto {
     @JsonKey(name: 'urls') UrlDto? url,
     @JsonKey(name: 'likes') int? likes,
   }) = _PhotoDto;
+
+  const PhotoDto._();
 
   factory PhotoDto.fromJson(Map<String, dynamic> json) => _$PhotoDtoFromJson(json);
 }

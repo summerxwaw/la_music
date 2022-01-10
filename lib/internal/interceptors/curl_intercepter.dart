@@ -4,24 +4,26 @@ import 'package:dio/dio.dart';
 
 class CurlInterceptor extends Interceptor {
   @override
-  Future<dynamic> onRequest(RequestOptions options, handler) async {
-    print('''
-    REQUEST:
-    ${cURLRepresentation(options)}
-    ''');
+  Future<dynamic> onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+    // print('''
+    // REQUEST:
+    // ${cURLRepresentation(options)}
+    // ''');
     return super.onRequest(options, handler);
   }
 
   String cURLRepresentation(RequestOptions options) {
+    // ignore: use_raw_strings
     final components = <String>['\$ curl -i'];
 
     if (options.method.toUpperCase() == 'GET') {
       components.add('-X ${options.method}');
     }
 
+    // ignore: avoid_annotating_with_dynamic
     options.headers.forEach((k, dynamic v) {
       if (k != 'Cookie') {
-        components.add('-H \"$k: $v\"');
+        components.add('-H "$k: $v"');
       }
     });
 
@@ -31,10 +33,10 @@ class CurlInterceptor extends Interceptor {
     }
     if (!ignoreEncoding) {
       final String data = json.encode(options.data);
-      components.add("-d \'$data\'");
+      components.add("-d '$data'");
     }
 
-    components.add('\"${options.uri.toString()}\"');
+    components.add('"${options.uri.toString()}"');
 
     final String join = components.join('\\\n\t');
     return join;

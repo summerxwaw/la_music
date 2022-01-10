@@ -11,19 +11,19 @@ AppRouter get router => getIt.get<AppRouter>();
 
 @MaterialAutoRouter(
   routes: <AutoRoute>[
-    AutoRoute(
+    AutoRoute<dynamic>(
       page: SplashPage,
       initial: true,
     ),
-    AutoRoute(
+    AutoRoute<dynamic>(
       page: Home,
       path: 'HomePage',
     ),
-    AutoRoute(
+    AutoRoute<dynamic>(
       page: Gallery,
       path: 'HomePage/Gallery',
     ),
-    CustomRoute(
+    CustomRoute<dynamic>(
       page: TempDialog,
       fullscreenDialog: true,
       path: 'temp',

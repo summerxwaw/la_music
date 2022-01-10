@@ -1,4 +1,4 @@
-import 'package:dio/src/dio.dart';
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:la_music/data/repositories/base_repository.dart';
 import 'package:la_music/domain/model/photo_dto/photo_dto.dart';
