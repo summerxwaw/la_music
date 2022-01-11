@@ -22,6 +22,7 @@ class _GalleryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO(Denis): Ok here. But generally BlocBuilder + buildWhen are better
     final state = context.watch<GalleryBloc>().state;
 
     return state.when(

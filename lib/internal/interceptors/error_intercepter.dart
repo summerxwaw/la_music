@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:logging/logging.dart';
 
 class ErrorInterceptor extends Interceptor {
+  // TODO(Denis): Use injectable singleton instead of handmade singleton
   ErrorInterceptor._privateConstructor();
 
   static final ErrorInterceptor _instance = ErrorInterceptor._privateConstructor();

@@ -6,7 +6,7 @@ import 'package:la_music/internal/interceptors/error_intercepter.dart';
 import 'package:la_music/internal/interceptors/header_interceptor.dart';
 
 const _timeout = 10000;
-
+// TODO(Denis): avoid any global variables
 const String authorized = 'authorized';
 const String unauthorized = 'unauthorized';
 

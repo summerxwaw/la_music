@@ -13,6 +13,7 @@ class Application extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<AppBloc>(),
+      // TODO(Denis): Add buildWhen
       child: BlocBuilder<AppBloc, AppState>(
         builder: (context, state) {
           return MaterialApp.router(

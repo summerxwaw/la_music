@@ -36,6 +36,7 @@ class _FadeAnimationContainerState extends State<FadeAnimationContainer> with Si
 
   @override
   Widget build(BuildContext context) {
+    // TODO(Denis): Single child stack?
     return Stack(
       alignment: Alignment.center,
       children: [
@@ -47,5 +48,6 @@ class _FadeAnimationContainerState extends State<FadeAnimationContainer> with Si
     );
   }
 
+  // TODO(Denis): Remove
   void loading() => setState(() {});
 }

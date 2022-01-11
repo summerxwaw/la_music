@@ -7,6 +7,7 @@ import 'package:la_music/presentation/page/gallery/gallery.dart';
 import 'package:la_music/presentation/page/home/home.dart';
 import 'package:la_music/presentation/page/splash/splash_page.dart';
 
+// TODO(Denis): try it with nested navigation
 AppRouter get router => getIt.get<AppRouter>();
 
 @MaterialAutoRouter(
@@ -32,7 +33,7 @@ AppRouter get router => getIt.get<AppRouter>();
   ],
 )
 class $AppRouter {}
-
+// TODO(Denis): Unused global method
 Route<T> myCustomRouteBuilder<T>(BuildContext context, Widget child, CustomPage<T> page) {
   return PageRouteBuilder(
     fullscreenDialog: page.fullscreenDialog,

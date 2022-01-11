@@ -21,6 +21,7 @@ abstract class AppConfig {
 
 @Environment('dev')
 @Injectable(as: AppConfig)
+// TODO(Denis): implements goes here
 class DevConfig extends AppConfig {
   @override
   bool get useMock => false;

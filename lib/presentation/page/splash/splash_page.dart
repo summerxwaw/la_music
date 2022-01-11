@@ -13,6 +13,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
+    // TODO(Denis): didChangeDependencies + context.read()
     getIt<AppBloc>().add(const AppInitEvent());
   }
 

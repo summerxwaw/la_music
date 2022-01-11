@@ -13,14 +13,13 @@ class CurlInterceptor extends Interceptor {
   }
 
   String cURLRepresentation(RequestOptions options) {
-    // ignore: use_raw_strings
+    // TODO(Denis): Fix lints! Don't ignore them
     final components = <String>['\$ curl -i'];
 
     if (options.method.toUpperCase() == 'GET') {
       components.add('-X ${options.method}');
     }
 
-    // ignore: avoid_annotating_with_dynamic
     options.headers.forEach((k, dynamic v) {
       if (k != 'Cookie') {
         components.add('-H "$k: $v"');

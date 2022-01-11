@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:la_music/data/repositories/base_repository.dart';
 import 'package:la_music/domain/model/photo_dto/photo_dto.dart';
-
+// TODO(Denis): @LazySingleton(as: BaseRepository) + use only abstraction
 @lazySingleton
 class PhotoRepository extends BaseRepository {
   PhotoRepository(@Named('authorized') Dio dio) : super(dio);

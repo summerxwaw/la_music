@@ -19,7 +19,7 @@ analyzer:
     avoid_bool_literals_in_conditional_expressions: error
     avoid_escaping_inner_quotes: error
     avoid_positional_boolean_parameters: error
-    avoid_print: error
+    avoid_print: warning
     avoid_private_typedef_functions: error
     avoid_relative_lib_imports: error
     avoid_returning_null_for_void: error
