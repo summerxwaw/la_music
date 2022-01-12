@@ -188,7 +188,7 @@ class _$GalleryStateTearOff {
     return const _LoadingState();
   }
 
-  _LoadedState loaded({required List<PhotoDto> photos}) {
+  _LoadedState loaded({required List<PhotoModel> photos}) {
     return _LoadedState(
       photos: photos,
     );
@@ -204,21 +204,21 @@ mixin _$GalleryState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<PhotoDto> photos) loaded,
+    required TResult Function(List<PhotoModel> photos) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PhotoDto> photos)? loaded,
+    TResult Function(List<PhotoModel> photos)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PhotoDto> photos)? loaded,
+    TResult Function(List<PhotoModel> photos)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -304,7 +304,7 @@ class _$_InitialState implements _InitialState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<PhotoDto> photos) loaded,
+    required TResult Function(List<PhotoModel> photos) loaded,
   }) {
     return initial();
   }
@@ -314,7 +314,7 @@ class _$_InitialState implements _InitialState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PhotoDto> photos)? loaded,
+    TResult Function(List<PhotoModel> photos)? loaded,
   }) {
     return initial?.call();
   }
@@ -324,7 +324,7 @@ class _$_InitialState implements _InitialState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PhotoDto> photos)? loaded,
+    TResult Function(List<PhotoModel> photos)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -414,7 +414,7 @@ class _$_LoadingState implements _LoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<PhotoDto> photos) loaded,
+    required TResult Function(List<PhotoModel> photos) loaded,
   }) {
     return loading();
   }
@@ -424,7 +424,7 @@ class _$_LoadingState implements _LoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PhotoDto> photos)? loaded,
+    TResult Function(List<PhotoModel> photos)? loaded,
   }) {
     return loading?.call();
   }
@@ -434,7 +434,7 @@ class _$_LoadingState implements _LoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PhotoDto> photos)? loaded,
+    TResult Function(List<PhotoModel> photos)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -487,7 +487,7 @@ abstract class _$LoadedStateCopyWith<$Res> {
   factory _$LoadedStateCopyWith(
           _LoadedState value, $Res Function(_LoadedState) then) =
       __$LoadedStateCopyWithImpl<$Res>;
-  $Res call({List<PhotoDto> photos});
+  $Res call({List<PhotoModel> photos});
 }
 
 /// @nodoc
@@ -508,7 +508,7 @@ class __$LoadedStateCopyWithImpl<$Res> extends _$GalleryStateCopyWithImpl<$Res>
       photos: photos == freezed
           ? _value.photos
           : photos // ignore: cast_nullable_to_non_nullable
-              as List<PhotoDto>,
+              as List<PhotoModel>,
     ));
   }
 }
@@ -519,7 +519,7 @@ class _$_LoadedState implements _LoadedState {
   const _$_LoadedState({required this.photos});
 
   @override
-  final List<PhotoDto> photos;
+  final List<PhotoModel> photos;
 
   @override
   String toString() {
@@ -548,7 +548,7 @@ class _$_LoadedState implements _LoadedState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<PhotoDto> photos) loaded,
+    required TResult Function(List<PhotoModel> photos) loaded,
   }) {
     return loaded(photos);
   }
@@ -558,7 +558,7 @@ class _$_LoadedState implements _LoadedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PhotoDto> photos)? loaded,
+    TResult Function(List<PhotoModel> photos)? loaded,
   }) {
     return loaded?.call(photos);
   }
@@ -568,7 +568,7 @@ class _$_LoadedState implements _LoadedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<PhotoDto> photos)? loaded,
+    TResult Function(List<PhotoModel> photos)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -613,9 +613,10 @@ class _$_LoadedState implements _LoadedState {
 }
 
 abstract class _LoadedState implements GalleryState {
-  const factory _LoadedState({required List<PhotoDto> photos}) = _$_LoadedState;
+  const factory _LoadedState({required List<PhotoModel> photos}) =
+      _$_LoadedState;
 
-  List<PhotoDto> get photos;
+  List<PhotoModel> get photos;
   @JsonKey(ignore: true)
   _$LoadedStateCopyWith<_LoadedState> get copyWith =>
       throw _privateConstructorUsedError;

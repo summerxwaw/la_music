@@ -1,22 +1,19 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:logging/logging.dart';
 
 enum TokenType { firebase, jwt, bearer, custom }
 
+@singleton
 class HeaderInterceptor extends Interceptor {
   // TODO(Denis): Use injectable singleton instead of handmade singleton
-  HeaderInterceptor._privateConstructor();
-
-  static final HeaderInterceptor _instance = HeaderInterceptor._privateConstructor();
-
-  static HeaderInterceptor get instance => _instance;
 
   late Dio _dio;
   // late TokenStorage _tokenStorage;
   late bool _isFirstTokenError = true;
 
   // TODO(Denis): fix warning
-  Logger get _logger => Logger('[$runtimeType]');
+  Logger get _logger => Logger('[$this]');
 
   late Future Function(RequestOptions) onRequestFunction;
   late Future Function(Response) onResponseFunction;

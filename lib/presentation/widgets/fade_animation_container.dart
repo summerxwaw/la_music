@@ -20,7 +20,7 @@ class _FadeAnimationContainerState extends State<FadeAnimationContainer> with Si
 
   @override
   void initState() {
-    _animationController = AnimationController(vsync: this)..addListener(loading);
+    _animationController = AnimationController(vsync: this)..addListener(() => setState(() {}));
     _animation = Tween<double>(begin: 0.0, end: pi * 2).animate(_animationController);
     _animationController.repeat(period: const Duration(seconds: 1));
 
@@ -30,24 +30,17 @@ class _FadeAnimationContainerState extends State<FadeAnimationContainer> with Si
   @override
   void dispose() {
     _animationController.dispose();
-    // _animationController.removeListener(loading);
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     // TODO(Denis): Single child stack?
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        Transform.rotate(
-          angle: _animation.value,
-          child: widget.child,
-        ),
-      ],
+    return Center(
+      child: Transform.rotate(
+        angle: _animation.value,
+        child: widget.child,
+      ),
     );
   }
-
-  // TODO(Denis): Remove
-  void loading() => setState(() {});
 }

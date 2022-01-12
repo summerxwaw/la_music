@@ -1,16 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'photo_dto.dart';
+part of 'photo_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PhotoDto _$$_PhotoDtoFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_PhotoDto',
+_$_PhotoModel _$$_PhotoModelFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      r'_$_PhotoModel',
       json,
       ($checkedConvert) {
-        final val = _$_PhotoDto(
+        final val = _$_PhotoModel(
           id: $checkedConvert('id', (v) => v as String?),
           createdAt: $checkedConvert('created_at', (v) => v as String?),
           updatedAt: $checkedConvert('updated_at', (v) => v as String?),
@@ -34,7 +35,7 @@ _$_PhotoDto _$$_PhotoDtoFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$_PhotoDtoToJson(_$_PhotoDto instance) =>
+Map<String, dynamic> _$$_PhotoModelToJson(_$_PhotoModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'created_at': instance.createdAt,

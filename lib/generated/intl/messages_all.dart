@@ -8,7 +8,7 @@
 // ignore_for_file:argument_type_not_assignable, invalid_assignment
 // ignore_for_file:prefer_single_quotes, prefer_generic_function_type_aliases
 // ignore_for_file:comment_references
-// TODO(Denis): Exclude generated files from linter!
+
 import 'dart:async';
 
 import 'package:intl/intl.dart';
@@ -20,8 +20,8 @@ import 'messages_ru_RU.dart' as messages_ru_ru;
 
 typedef Future<dynamic> LibraryLoader();
 Map<String, LibraryLoader> _deferredLibraries = {
-  'en': () => new Future<void>.value(null),
-  'ru_RU': () => new Future<void>.value(null),
+  'en': () => new Future.value(null),
+  'ru_RU': () => new Future.value(null),
 };
 
 MessageLookupByLibrary? _findExact(String localeName) {
@@ -37,11 +37,13 @@ MessageLookupByLibrary? _findExact(String localeName) {
 
 /// User programs should call this before using [localeName] for messages.
 Future<bool> initializeMessages(String localeName) async {
-  final availableLocale = Intl.verifiedLocale(localeName, (locale) => _deferredLibraries[locale] != null, onFailure: (_) => null);
+  var availableLocale = Intl.verifiedLocale(
+      localeName, (locale) => _deferredLibraries[locale] != null,
+      onFailure: (_) => null);
   if (availableLocale == null) {
     return new Future.value(false);
   }
-  final lib = _deferredLibraries[availableLocale];
+  var lib = _deferredLibraries[availableLocale];
   await (lib == null ? new Future.value(false) : lib());
   initializeInternalMessageLookup(() => new CompositeMessageLookup());
   messageLookup.addLocale(availableLocale, _findGeneratedMessagesFor);
@@ -57,7 +59,8 @@ bool _messagesExistFor(String locale) {
 }
 
 MessageLookupByLibrary? _findGeneratedMessagesFor(String locale) {
-  final actualLocale = Intl.verifiedLocale(locale, _messagesExistFor, onFailure: (_) => null);
+  var actualLocale =
+      Intl.verifiedLocale(locale, _messagesExistFor, onFailure: (_) => null);
   if (actualLocale == null) return null;
   return _findExact(actualLocale);
 }

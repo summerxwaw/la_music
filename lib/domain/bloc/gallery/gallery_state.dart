@@ -8,5 +8,5 @@ class GalleryState with _$GalleryState {
 
   // TODO(Denis): DTO should not be exposed to UI
   // TODO(Denis): Should be converted from Dto to decent model
-  const factory GalleryState.loaded({required List<PhotoDto> photos}) = _LoadedState;
+  const factory GalleryState.loaded({required List<PhotoModel> photos}) = _LoadedState;
 }

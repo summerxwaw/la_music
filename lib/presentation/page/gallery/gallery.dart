@@ -11,38 +11,33 @@ class Gallery extends StatelessWidget {
     return Material(
       child: BlocProvider(
         create: (context) => GalleryBloc()..add(const FetchPhotoEvent()),
-        child: const _GalleryWidget(),
+        child: BlocBuilder<GalleryBloc, GalleryState>(
+          buildWhen: (previous, current) {
+            return true;
+          },
+          builder: (context, state) {
+            return state.when(
+              initial: () => const Center(
+                child: Text('init'),
+              ),
+              loading: () => const Center(child: FadeAnimationContainer(child: Text('Loading'))),
+              loaded: (photos) {
+                return ListView.builder(
+                    itemCount: photos.length,
+                    itemBuilder: (ctx, i) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: Image.network(
+                          photos[i].url!.small!,
+                          gaplessPlayback: true,
+                        ),
+                      );
+                    });
+              },
+            );
+          },
+        ),
       ),
-    );
-  }
-}
-
-class _GalleryWidget extends StatelessWidget {
-  const _GalleryWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO(Denis): Ok here. But generally BlocBuilder + buildWhen are better
-    final state = context.watch<GalleryBloc>().state;
-
-    return state.when(
-      initial: () => const Center(
-        child: Text('init'),
-      ),
-      loading: () => const Center(child: FadeAnimationContainer(child: Text('Loading'))),
-      loaded: (photos) {
-        return ListView.builder(
-            itemCount: photos.length,
-            itemBuilder: (ctx, i) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5),
-                child: Image.network(
-                  photos[i].url!.small!,
-                  gaplessPlayback: true,
-                ),
-              );
-            });
-      },
     );
   }
 }

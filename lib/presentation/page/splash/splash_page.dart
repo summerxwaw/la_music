@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:la_music/domain/bloc/app/app_bloc.dart';
 import 'package:la_music/internal/dependency/injection_config.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     // TODO(Denis): didChangeDependencies + context.read()
-    getIt<AppBloc>().add(const AppInitEvent());
+    context.read<AppBloc>().add(const AppInitEvent());
   }
 
   @override

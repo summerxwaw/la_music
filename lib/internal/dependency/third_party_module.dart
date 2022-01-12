@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:la_music/internal/config/app_config.dart';
 import 'package:la_music/internal/config/auto_router.gr.dart';
+import 'package:la_music/internal/dependency/injection_config.dart';
 import 'package:la_music/internal/interceptors/error_intercepter.dart';
 import 'package:la_music/internal/interceptors/header_interceptor.dart';
 
@@ -37,8 +38,8 @@ abstract class ThirdPartyModule {
     dio.options.baseUrl = config.baseUrl;
 
     final interceptors = [
-      ErrorInterceptor.instance,
-      HeaderInterceptor.instance..set(dio: dio, isAuthorized: isAuthorized),
+      getIt<ErrorInterceptor>(),
+      getIt<HeaderInterceptor>()..set(dio: dio, isAuthorized: isAuthorized),
     ];
 
     return dio

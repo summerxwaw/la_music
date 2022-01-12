@@ -1,15 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:logging/logging.dart';
 
+@singleton
 class ErrorInterceptor extends Interceptor {
   // TODO(Denis): Use injectable singleton instead of handmade singleton
-  ErrorInterceptor._privateConstructor();
 
-  static final ErrorInterceptor _instance = ErrorInterceptor._privateConstructor();
-
-  static ErrorInterceptor get instance => _instance;
-
-  Logger get logger => Logger('${_instance.runtimeType}');
+  Logger get logger => Logger('${this}');
 
   Future<void> init({required void Function(DioError) onErrorCallback}) async {
     this.onErrorCallback = onErrorCallback;

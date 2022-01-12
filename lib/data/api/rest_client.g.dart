@@ -17,19 +17,19 @@ class _RestClient implements RestClient {
   String? baseUrl;
 
   @override
-  Future<List<PhotoDto>> fetchPhoto() async {
+  Future<List<PhotoModel>> fetchPhoto() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<List<PhotoDto>>(
+        _setStreamType<List<PhotoModel>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
                 .compose(_dio.options, '',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
-        .map((dynamic i) => PhotoDto.fromJson(i as Map<String, dynamic>))
+        .map((dynamic i) => PhotoModel.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }

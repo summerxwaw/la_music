@@ -33,12 +33,3 @@ AppRouter get router => getIt.get<AppRouter>();
   ],
 )
 class $AppRouter {}
-// TODO(Denis): Unused global method
-Route<T> myCustomRouteBuilder<T>(BuildContext context, Widget child, CustomPage<T> page) {
-  return PageRouteBuilder(
-    fullscreenDialog: page.fullscreenDialog,
-    // this is important
-    settings: page,
-    pageBuilder: (_, __, ___) => child,
-  );
-}

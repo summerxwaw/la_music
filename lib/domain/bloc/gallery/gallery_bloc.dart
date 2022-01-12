@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:la_music/data/services/photo_service.dart';
-import 'package:la_music/domain/model/photo_dto/photo_dto.dart';
+import 'package:la_music/domain/model/photo_dto/photo_model.dart';
 import 'package:la_music/internal/dependency/injection_config.dart';
 
 part 'gallery_event.dart';
@@ -15,7 +15,7 @@ class GalleryBloc extends Bloc<GalleryEvent, GalleryState> {
     on<FetchPhotoEvent>((event, emit) async {
       emit(const GalleryState.loading());
 
-      final List<PhotoDto> photos = await getIt<PhotoService>().fetchPhoto();
+      final List<PhotoModel> photos = await getIt<PhotoService>().fetchPhoto();
 
       emit(GalleryState.loaded(photos: photos));
     });

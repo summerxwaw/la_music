@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(S.of(context).appTitle + getIt<AppBloc>().state.counter.toString()),
+            Text(S.of(context).appTitle + context.read<AppBloc>().state.counter.toString()),
             InkWell(
               onTap: () => setState(() {
                 if (Intl.getCurrentLocale() == 'ru_RU') {
@@ -47,7 +47,7 @@ class _HomeState extends State<Home> {
         builder: (context, state) {
           return FloatingActionButton(
             // TODO(Denis): context.read()
-            onPressed: () => getIt<AppBloc>().add(const AppChangeTheamEvent()),
+            onPressed: () => context.read<AppBloc>().add(const AppChangeTheamEvent()),
             child: Icon(state.themeData!.brightness == Brightness.dark ? Icons.theater_comedy_outlined : Icons.theater_comedy),
           );
         },

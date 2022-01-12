@@ -11,10 +11,6 @@ Future<void> main() async {
   initDependencies(DevConfig());
   initLogger(DevConfig());
 
-  // TODO(Denis): has injectable that is not used
-  // TODO(Denis): better make main_common for general init logic and move initSystem where
-  await initSystem();
-
   BlocOverrides.runZoned(
     () => runApp(const Application()),
     blocObserver: AppBlocObserver(),

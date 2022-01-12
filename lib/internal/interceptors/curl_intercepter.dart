@@ -14,7 +14,8 @@ class CurlInterceptor extends Interceptor {
 
   String cURLRepresentation(RequestOptions options) {
     // TODO(Denis): Fix lints! Don't ignore them
-    final components = <String>['\$ curl -i'];
+    // done!
+    final components = <String>[r'\$ curl -i'];
 
     if (options.method.toUpperCase() == 'GET') {
       components.add('-X ${options.method}');
