@@ -5,13 +5,11 @@ import 'package:la_music/domain/model/photo_dto/photo_model.dart';
 
 // TODO(Denis): @LazySingleton(as: BaseRepository) + use only abstraction
 // done!
-@injectable
-@LazySingleton(as: BaseDioRepository)
-class PhotoRepository extends BaseDioRepository {
-  PhotoRepository(@Named('authorized') Dio dio) : super(dio);
+@LazySingleton(as: PhotoRepository)
+class PhotoRepositoryImpl extends PhotoRepository {
+  PhotoRepositoryImpl(@Named('authorized') Dio dio) : super(dio);
 
-  // BaseDioRepository dioRepository;
-
+  @override
   Future<List<PhotoModel>> fetchPhoto() async {
     final List<PhotoModel> response = await api.fetchPhoto();
 
