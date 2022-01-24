@@ -35,7 +35,6 @@ class _FadeAnimationContainerState extends State<FadeAnimationContainer> with Si
 
   @override
   Widget build(BuildContext context) {
-    // TODO(Denis): Single child stack?
     return Center(
       child: Transform.rotate(
         angle: _animation.value,
